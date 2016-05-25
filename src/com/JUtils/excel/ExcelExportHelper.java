@@ -963,9 +963,9 @@ public class ExcelExportHelper {
 		fileName = getFileName(fileName);
 		FileOutputStream out = null;
 		try {
-			out = new FileOutputStream(filePath + "\\" + fileName + ".xls");
+			out = new FileOutputStream(filePath + File.separator + fileName + ".xls");
 			book.write(out); 
-			System.out.println("——————————————————保存Excel文件成功，保存路径：" + filePath + "\\" + fileName + ".xls");
+			System.out.println("——————————————————保存Excel文件成功，保存路径：" + filePath + File.separator + fileName + ".xls");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("——————————————————保存Excel文件失败。exportExcelForListAndSave,message："+e.getMessage());
@@ -1005,7 +1005,7 @@ public class ExcelExportHelper {
 		FileOutputStream out = null;
 		ZipOutputStream zip = null;
 		try {
-			out = new FileOutputStream(filePath + "\\" + zipName + ".zip");
+			out = new FileOutputStream(filePath + File.separator + zipName + ".zip");
 			zip = new ZipOutputStream(out);
 			HSSFWorkbook book = null;
 			String _excelName = "";
@@ -1016,7 +1016,7 @@ public class ExcelExportHelper {
 				zip.putNextEntry(entry);
 				book.write(zip);
 			}
-			System.out.println("——————————————————保存Excel文件成功，保存路径：" + filePath + "\\" + zipName + ".xls");
+			System.out.println("——————————————————保存Excel文件成功，保存路径：" + filePath + File.separator + zipName + ".xls");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			System.out.println("——————————————————保存Excel文件失败。method:exportExcelForBigDataAndSave,message：" + e.getMessage());
